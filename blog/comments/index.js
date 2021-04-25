@@ -15,7 +15,7 @@ app.get("/posts/:id/comments", (req, res) => {
 });
 
 app.post("/posts/:id/comments", async (req, res) => {
-  const commentId = randomBytes(4).toString("hex");
+  const commentId = randomBytes(8).toString("hex");
   const { content } = req.body;
 
   const comments = commentsByPostId[req.params.id] || [];
