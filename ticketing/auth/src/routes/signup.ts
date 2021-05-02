@@ -20,9 +20,7 @@ router.post(
 	async (req: Request, res: Response) => {
 		const errors = validationResult(req);
 
-		if (!errors.isEmpty()) {
-			throw new RequestValidationError(errors.array());
-		}
+		if (!errors.isEmpty()) throw new RequestValidationError(errors.array());
 
 		const { email, password } = req.body;
 
@@ -41,7 +39,7 @@ router.post(
 				id: newUser.id,
 				email: newUser.email
 			},
-			'asdjfa'
+			process.env.JWT_KEY as string
 		);
 
 		// Store it on session object
