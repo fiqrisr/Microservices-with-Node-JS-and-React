@@ -717,9 +717,9 @@
     "@types/node" "*"
 
 "@types/jsonwebtoken@^8.5.2":
-  version "8.5.2"
-  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.2.tgz#eb71c717b3b8681bb85fbd2950c9c4c5d4506748"
-  integrity sha512-X8BOCkp+WJVNYCYIBugREtVZa4Y09Or9HDx6xqRZem5F8jJV8FuJgNessXyMuv9+U8pjnvdezASwU28uw+1scw==
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.3.tgz#de78585ee352593ca627c6ee4afa772bbe020fb7"
+  integrity sha512-uhZGbMfpIC/sI7ujnNdsPFMzqCYMwTBUvVsbJ6yJ+FakM7uTJKyiKaG2HXwOgy7gL+fRqnqxV82bLGmSWDxxGg==
   dependencies:
     "@types/node" "*"
 
@@ -896,10 +896,10 @@
     "@typescript-eslint/types" "4.22.0"
     eslint-visitor-keys "^2.0.0"
 
-"@wnorg/common@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@wnorg/common/-/common-1.0.5.tgz#49b2fa2dd3310348f3f035492f35a9180eb6d9f0"
-  integrity sha512-JwWfgQHqaPWRL+CC7GHiRAbiBcX+CqNOUxvJos/LayNf1kR6ILRVOr+bv9grBXTtafXmh6n8kRsIF2bbGPhOuw==
+"@wnlz/common@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@wnlz/common/-/common-1.0.0.tgz#a1294d254906b3cc6025ccc3fb5a22c80a44d29a"
+  integrity sha512-q5HdGqcesBuANpiZC+2mXZDbY2ntmnYB827Uv/NE4LBFEoTvw+P7IalEaN7bmXRElT4SyhVlWxX5+LYQuMXvFg==
   dependencies:
     "@types/cookie-session" "^2.0.42"
     "@types/express" "^4.17.12"

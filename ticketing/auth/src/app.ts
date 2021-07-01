@@ -1,7 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
-import { NotFoundError, errorHandler } from '@wnorg/common';
+import { NotFoundError, errorHandler } from '@wnlz/common';
 
 import { signinRouter } from './routes/signin';
 import { signupRouter } from './routes/signup';

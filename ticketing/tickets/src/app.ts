@@ -1,7 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
-import { NotFoundError, errorHandler } from '@wnorg/common';
+import { NotFoundError, errorHandler } from '@wnlz/common';
 
 const app = express();
 app.set('trust proxy', true);
