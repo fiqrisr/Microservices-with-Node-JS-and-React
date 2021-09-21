@@ -14,13 +14,14 @@ spec:
     spec:
       containers:
         - name: client
-          image: ticketing/client
-          imagePullPolicy: Never
+          image: registry.cloud.okteto.net/ticketing-fiqrisr/micro-ticketing:client
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: client-srv
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
 spec:
   selector:
     app: client
