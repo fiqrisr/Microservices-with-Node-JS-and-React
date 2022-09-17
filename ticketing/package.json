@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ticketing",
   "version": "1.0.0",
   "license": "MIT",
@@ -9,4 +10,12 @@
   "devDependencies": {
     "prettier": "^2.4.1"
   }
+=======
+  "private": true,
+  "name": "ticketing-microservices",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ]
+>>>>>>> main
 }

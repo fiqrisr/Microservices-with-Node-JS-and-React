@@ -9,7 +9,11 @@ build:
     push: false
   artifacts:
     - image: ticketing/auth
+<<<<<<< HEAD
       context: packages/auth
+=======
+      context: apps/auth
+>>>>>>> main
       docker:
         dockerfile: Dockerfile
       sync:
@@ -17,7 +21,11 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: ticketing/tickets
+<<<<<<< HEAD
       context: packages/tickets
+=======
+      context: apps/tickets
+>>>>>>> main
       docker:
         dockerfile: Dockerfile
       sync:
@@ -25,7 +33,11 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: ticketing/client
+<<<<<<< HEAD
       context: packages/client
+=======
+      context: apps/client
+>>>>>>> main
       docker:
         dockerfile: Dockerfile
       sync:
