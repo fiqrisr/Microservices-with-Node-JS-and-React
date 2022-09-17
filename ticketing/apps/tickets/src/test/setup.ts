@@ -7,11 +7,7 @@ import { app } from '../app';
 
 declare global {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
-	namespace NodeJS {
-		interface Global {
-			signin(): string[];
-		}
-	}
+	var signin: () => string[];
 }
 
 let mongo: MongoMemoryServer;
@@ -37,7 +33,7 @@ afterAll(async () => {
 	await mongoose.connection.close();
 });
 
-(global as NodeJS.Global & typeof globalThis).signin = () => {
+global.signin = () => {
 	// Build a JWT payload. { id, email }
 	const payload = {
 		id: new mongoose.Types.ObjectId().toHexString(),

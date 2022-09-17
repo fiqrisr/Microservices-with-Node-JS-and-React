@@ -6,11 +6,7 @@ import { app } from '../app';
 
 declare global {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
-	namespace NodeJS {
-		interface Global {
-			signin(): Promise<string[]>;
-		}
-	}
+	var signin: () => Promise<string[]>;
 }
 
 let mongo: MongoMemoryServer;

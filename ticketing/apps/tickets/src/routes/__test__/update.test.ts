@@ -7,7 +7,7 @@ it('returns a 404 if the provided id is not exist', async () => {
 
 	await request(app)
 		.put(`/api/tickets/${id}`)
-		.set('Cookie', (global as NodeJS.Global & typeof globalThis).signin())
+		.set('Cookie', global.signin())
 		.send({
 			title: 'jofjewu',
 			price: 30
@@ -28,17 +28,14 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 
 it('returns a 401 if the user does not own the ticke', async () => {
-	const response = await request(app)
-		.post('/api/tickets')
-		.set('Cookie', (global as NodeJS.Global & typeof globalThis).signin())
-		.send({
-			title: 'dasjf9u3r',
-			price: 20
-		});
+	const response = await request(app).post('/api/tickets').set('Cookie', global.signin()).send({
+		title: 'dasjf9u3r',
+		price: 20
+	});
 
 	await request(app)
 		.put(`/api/tickets/${response.body.id}`)
-		.set('Cookie', (global as NodeJS.Global & typeof globalThis).signin())
+		.set('Cookie', global.signin())
 		.send({
 			title: '9120u93difsa',
 			price: 50
@@ -47,7 +44,7 @@ it('returns a 401 if the user does not own the ticke', async () => {
 });
 
 it('returns a 400 if the user provided an invalid title or price', async () => {
-	const cookie = (global as NodeJS.Global & typeof globalThis).signin();
+	const cookie = global.signin();
 
 	const response = await request(app).post('/api/tickets').set('Cookie', cookie).send({
 		title: 'dasjf9u3r',
@@ -74,7 +71,7 @@ it('returns a 400 if the user provided an invalid title or price', async () => {
 });
 
 it('updates the ticket provided with valid inputs', async () => {
-	const cookie = (global as NodeJS.Global & typeof globalThis).signin();
+	const cookie = global.signin();
 
 	const response = await request(app).post('/api/tickets').set('Cookie', cookie).send({
 		title: 'dasjf9u3r',

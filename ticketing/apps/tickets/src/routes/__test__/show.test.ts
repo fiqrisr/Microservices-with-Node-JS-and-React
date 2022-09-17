@@ -14,7 +14,7 @@ it('return the ticket if the ticket is found', async () => {
 
 	const response = await request(app)
 		.post('/api/tickets')
-		.set('Cookie', (global as NodeJS.Global & typeof globalThis).signin())
+		.set('Cookie', global.signin())
 		.send({
 			title,
 			price
