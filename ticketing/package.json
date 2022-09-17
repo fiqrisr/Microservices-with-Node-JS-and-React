@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "ticketing-microservices",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ]
+}
