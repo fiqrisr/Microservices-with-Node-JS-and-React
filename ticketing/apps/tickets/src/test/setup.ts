@@ -1,22 +1,20 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import request from 'supertest';
 import jwt from 'jsonwebtoken';
 
-import { app } from '../app';
-
 declare global {
-	// eslint-disable-next-line @typescript-eslint/no-namespace
+	// eslint-disable-next-line @typescript-eslint/no-namespace,no-var
 	var signin: () => string[];
 }
+
+jest.mock('../nats-wrapper');
 
 let mongo: MongoMemoryServer;
 
 beforeAll(async () => {
 	process.env.JWT_KEY = 'djsafiewjov';
 
-	mongo = new MongoMemoryServer();
-	await mongo.start();
+	mongo = await MongoMemoryServer.create();
 	const mongoUri = mongo.getUri();
 
 	await mongoose.connect(mongoUri);
@@ -41,6 +39,7 @@ global.signin = () => {
 	};
 
 	// Create the JWT!
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const token = jwt.sign(payload, process.env.JWT_KEY!);
 
 	// Build session object. { jwt: MY_JWT }
