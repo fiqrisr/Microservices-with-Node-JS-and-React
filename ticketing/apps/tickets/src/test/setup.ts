@@ -1,32 +1,27 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import request from 'supertest';
 import jwt from 'jsonwebtoken';
 
-import { app } from '../app';
-
 declare global {
-	// eslint-disable-next-line @typescript-eslint/no-namespace
-	namespace NodeJS {
-		interface Global {
-			signin(): string[];
-		}
-	}
+	// eslint-disable-next-line @typescript-eslint/no-namespace,no-var
+	var signin: () => string[];
 }
+
+jest.mock('../nats-wrapper');
 
 let mongo: MongoMemoryServer;
 
 beforeAll(async () => {
 	process.env.JWT_KEY = 'djsafiewjov';
 
-	mongo = new MongoMemoryServer();
-	await mongo.start();
+	mongo = await MongoMemoryServer.create();
 	const mongoUri = mongo.getUri();
 
 	await mongoose.connect(mongoUri);
 });
 
 beforeEach(async () => {
+	jest.clearAllMocks();
 	const collections = await mongoose.connection.db.collections();
 
 	collections.forEach(async collection => await collection.deleteMany({}));
@@ -37,7 +32,7 @@ afterAll(async () => {
 	await mongoose.connection.close();
 });
 
-(global as NodeJS.Global & typeof globalThis).signin = () => {
+global.signin = () => {
 	// Build a JWT payload. { id, email }
 	const payload = {
 		id: new mongoose.Types.ObjectId().toHexString(),
@@ -45,6 +40,7 @@ afterAll(async () => {
 	};
 
 	// Create the JWT!
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const token = jwt.sign(payload, process.env.JWT_KEY!);
 
 	// Build session object. { jwt: MY_JWT }

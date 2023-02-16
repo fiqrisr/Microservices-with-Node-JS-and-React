@@ -2,13 +2,10 @@ import request from 'supertest';
 import { app } from '../../app';
 
 const createTicket = () => {
-	return request(app)
-		.post('/api/tickets')
-		.set('Cookie', (global as NodeJS.Global & typeof globalThis).signin())
-		.send({
-			title: 'jdsfaodsjafo',
-			price: 20
-		});
+	return request(app).post('/api/tickets').set('Cookie', global.signin()).send({
+		title: 'jdsfaodsjafo',
+		price: 20
+	});
 };
 
 it('can fetch a list of tickets', async () => {
