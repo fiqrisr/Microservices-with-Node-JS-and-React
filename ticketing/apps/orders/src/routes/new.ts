@@ -60,4 +60,4 @@ router.post(
 	}
 );
 
-export { router as newOrderRouter };
+export { router as createOrderRouter };
