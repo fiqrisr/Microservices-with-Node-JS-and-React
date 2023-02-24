@@ -17,7 +17,7 @@
 		"@types/express": "^4.17.11",
 		"@types/jsonwebtoken": "^8.5.1",
 		"@types/node": "^18.7.18",
-		"@wnlz/common": "1.0.4",
+		"@wnlz/common": "^1.0.4",
 		"argon2": "^0.29.1",
 		"cookie-session": "^2.0.0",
 		"express": "^4.17.1",
