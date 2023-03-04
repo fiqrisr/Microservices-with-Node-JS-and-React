@@ -12,7 +12,12 @@ export * from './middlewares/validate-request';
 
 export * from './events/base/base-publisher';
 export * from './events/base/base-listener';
+
 export * from './events/enums/subjects';
+
 export * from './events/ticket-created-event';
 export * from './events/ticket-updated-event';
+export * from './events/order-created-event';
+export * from './events/order-cancelled-event';
+
 export * from './events/types/order-status';
